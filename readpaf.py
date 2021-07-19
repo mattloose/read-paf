@@ -125,17 +125,17 @@ def _paf_generator(file_like, fields=None):
         record = record.split("\t")
         yield PAF(
             str(record[0]),
-            int(record[1]),
-            int(record[2]),
-            int(record[3]),
+            int(record[1]) if record[1].isdigit() else record[1],
+            int(record[2]) if record[2].isdigit() else record[2],
+            int(record[3]) if record[3].isdigit() else record[3],
             str(record[4]),
             str(record[5]),
-            int(record[6]),
-            int(record[7]),
-            int(record[8]),
-            int(record[9]),
-            int(record[10]),
-            int(record[11]),
+            int(record[6])  if record[6].isdigit() else record[6],
+            int(record[7])  if record[7].isdigit() else record[7],
+            int(record[8])  if record[8].isdigit() else record[8],
+            int(record[9])  if record[9].isdigit() else record[9],
+            int(record[10])  if record[10].isdigit() else record[10],
+            int(record[11]) if record[11].isdigit() else record[11],
             _parse_tags(record[12:]),
         )
 
